@@ -12,18 +12,18 @@ public class BOJ2304 {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringBuilder sb = new StringBuilder();
 		
-		int N = Integer.parseInt(br.readLine()); // 기동의 개수
+		int N = Integer.parseInt(br.readLine()); // 기둥의 개수
 		int[][] arr = new int[N][2];
 		
 		for(int n = 0; n < N; n++) {
 			StringTokenizer st = new StringTokenizer(br.readLine(), " ");
-			arr[n][0] = Integer.parseInt(st.nextToken()); // 왼쪽 면의 위치 L (x츅 위치)
+			arr[n][0] = Integer.parseInt(st.nextToken()); // 왼쪽 면의 위치 L (x축 위치)
 			arr[n][1] = Integer.parseInt(st.nextToken()); // 높이 H
 		}
 		// 1. 막대기 위치 (x축 위치) 기준 오름차순 정렬
 		// 2. 최고 높이 막대 기준으로 좌 우 분리
 		// 3. 좌 우 따로 계산
-		// 3. 최고 높이 막대의 너비와 높이 곱해서 area 추가하기
+		// 4. 최고 높이 막대의 너비와 높이 곱해서 area 추가하기
 		
 		Arrays.sort(arr, (o1, o2) -> o1[0] - o2[0]);
 		// System.out.println(Arrays.deepToString(arr));
