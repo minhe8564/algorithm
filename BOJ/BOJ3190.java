@@ -33,29 +33,39 @@ public class BOJ3190 {
             snake.put(X, C);
         }
         
-        Deque<int[]> d = new LinkedList<>();
-        d.offer(new int[]{0, 0}); // 덱 뒤쪽 데이터 삽입, 뱀 머리 추가
+//        Deque<int[]> d = new LinkedList<>();
+        List<int[]> list = new ArrayList<>();
+//        d.offer(new int[]{0, 0}); // 덱 뒤쪽 데이터 삽입, 뱀 머리 추가
+        list.add(new int[] {0,0});
         grid[0][0] = 2; // 뱀
         int time = 0;
         int dir = 0;
-
+        int x = 0, y = 0;
+        
         while (true) {
             time++;
-            int[] head = d.peekLast(); // 덱 마지막 데이터 확인
-            int nx = head[0] + dx[dir];
-            int ny = head[1] + dy[dir];
+//            int[] head = d.peekLast(); // 덱 마지막 데이터 확인
+//            int nx = head[0] + dx[dir];
+//            int ny = head[1] + dy[dir];
+            
+            int nx = x + dx[dir];
+            int ny = y + dx[dir];
 
             if (nx < 0 || ny < 0 || nx >= N || ny >= N || grid[nx][ny] == 2) {
                 break;
             }
 
             if (grid[nx][ny] != 1) {
-                int[] tail = d.poll(); // 덱 앞쪽 제거, 뱀 꼬리 삭제
+//                int[] tail = d.poll(); // 덱 앞쪽 제거, 뱀 꼬리 삭제
+            	int[] tail = list.remove(0);
                 grid[tail[0]][tail[1]] = 0;
             }
 
-            d.offer(new int[]{nx, ny}); // 덱 뒤쪽 데이터 삽입, 새로운 뱀 머리 추가
+            list.add(new int[] {nx, ny});
+//            d.offer(new int[]{nx, ny}); // 덱 뒤쪽 데이터 삽입, 새로운 뱀 머리 추가
             grid[nx][ny] = 2;
+            x = nx;
+            y = ny;
 
             if (snake.containsKey(time)) {
                 char turn = snake.get(time);
