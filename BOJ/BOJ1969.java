@@ -46,7 +46,7 @@ public class BOJ1969 {
 			case 3: sb.append('T'); break;
 			}
 			
-			hd += N - max;
+			hd += N - max; // Hamming Distance
 		}
 		
 		System.out.println(sb);
