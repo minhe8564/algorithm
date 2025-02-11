@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.*;
 
 public class BOJ1913_달팽이 {
-	static int[] dx = { -1, 0, 1, 0 }; // 상1우1하2좌2상3우3하4좌4상5
+	static int[] dx = { -1, 0, 1, 0 }; // 상1우1하2좌2상3우3하4좌4상5 
 	static int[] dy = { 0, 1, 0, -1 };
 
     public static void main(String[] args) throws IOException {
