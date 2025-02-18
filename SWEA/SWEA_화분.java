@@ -8,27 +8,26 @@ public class SWEA_화분 {
 	static int[] A;
 	static int[] B;
 	static int answer;
-
+	
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringBuilder sb = new StringBuilder();
-		int T = Integer.parseInt(br.readLine().trim());
+		int T = Integer.parseInt(br.readLine());
 		for(int t = 1; t <= T; t++) {
-			StringTokenizer st = new StringTokenizer(br.readLine().trim(), " ");
-			N = Integer.parseInt(st.nextToken()); // 화분의 수
-			P = Integer.parseInt(st.nextToken()); // 동일한 비료를 연속으로 주었을 때 P만큼 덜 자란다.
+			StringTokenizer st = new StringTokenizer(br.readLine());
+			N = Integer.parseInt(st.nextToken());
+			P = Integer.parseInt(st.nextToken());
 			A = new int[N];
 			B = new int[N];
+			st = new StringTokenizer(br.readLine());
+			for(int i = 0; i < N; i++) {
+				A[i] = Integer.parseInt(st.nextToken());
+			}
+			st = new StringTokenizer(br.readLine());
+			for(int i = 0; i < N; i++) {
+				B[i] = Integer.parseInt(st.nextToken());
+			}
 			
-			st = new StringTokenizer(br.readLine().trim(), " ");
-			for(int n = 0; n < N; n++) {
-				A[n] = Integer.parseInt(st.nextToken());
-			}
-			st = new StringTokenizer(br.readLine().trim(), " ");
-			for(int n = 0; n < N; n++) {
-				B[n] = Integer.parseInt(st.nextToken());
-			}
-
 			answer = Integer.MIN_VALUE;
 			dfs(0, 0, 0);
 			
@@ -43,11 +42,29 @@ public class SWEA_화분 {
 			answer = Math.max(answer, sum);
 			return;
 		}
+
+		// sum을 밖에서 수정하면 다른 재귀 호출에도 영향을 준다...
+		// A 선택
+//		if(prev == 1) 
+//			sum += A[idx] - P;
+//		else
+//			sum += A[idx];
+//		dfs(idx+1, sum, 1);
 		
-		// A 비료 선택한 경우
-		dfs(idx+1, prev==1 ? sum + A[idx]-P : sum + A[idx], 1);
-		// B 비료 선택한 경우
-		dfs(idx+1, prev==2 ? sum + B[idx]-P : sum + B[idx], 2);
+		// 음수 방지하기 위해서
+		// Math.max(A[idx]-P, 0) 해줘야 함!!!
+	    dfs(idx+1, sum + (prev==1 ? Math.max(A[idx]-P, 0) : A[idx]), 1);
+
+
+		// B 선택
+//		if(prev == 2) 
+//			sum += B[idx] - P;
+//		else
+//			sum += B[idx];
+//		dfs(idx+1, sum, 2);
+	    dfs(idx+1, sum + (prev==2 ? Math.max(B[idx]-P, 0) : B[idx]), 2);
+	    
+	    
 		
 	}
 
