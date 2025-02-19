@@ -3,7 +3,7 @@ package algorithm;
 import java.io.*;
 import java.util.StringTokenizer;
 
-public class BOJ15651_N과M4 {
+public class BOJ15652_N과M4 {
 	static int N, M;
 	static int[] arr;
 	static int[] result;
