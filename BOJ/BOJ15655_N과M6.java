@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
-public class BOJ15651_N과M6 {
+public class BOJ15655_N과M6 {
 	static int N, M;
 	static int[] arr;
 	static int[] result;
