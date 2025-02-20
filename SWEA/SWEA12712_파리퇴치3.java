@@ -5,7 +5,7 @@ import java.util.*;
 
 public class SWEA12712_파리퇴치3 {
 	// 1. + 형태 x 형태 M의 세기로 분사하기
-	// 2. 최대 파리 수 더하기
+	// 2. 최대 파리 수 더하기 
 
 	static int N, M;
 	static int[][] map;
