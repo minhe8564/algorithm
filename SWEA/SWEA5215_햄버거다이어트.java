@@ -3,7 +3,7 @@ package algorithm;
 import java.io.*;
 import java.util.*;
 
-public class SWEA5215_햄버거다이어트 {
+public class SWEA5215_햄버거다이어트_부분집합 {
 	static int N, L;
 	static int sumScore;
 	static List<int[]> info;
@@ -25,7 +25,8 @@ public class SWEA5215_햄버거다이어트 {
 			}
 			sumScore = 0;
 			
-			comb(0, 0, 0);
+			// 뽑아야 할 개수가 정해져 있지 않다!!! -> 부분집합
+			subset(0, 0, 0);
 			
 			sb.append("#").append(t).append(" ").append(sumScore).append("\n");
 		}
@@ -33,7 +34,7 @@ public class SWEA5215_햄버거다이어트 {
 		br.close();
 	}
 	
-	private static void comb(int idx, int score, int kcal) {
+	private static void subset(int idx, int score, int kcal) {
 		if(kcal > L) {
 			return;
 		}
