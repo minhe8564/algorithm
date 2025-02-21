@@ -3,7 +3,7 @@ import java.util.*;
 
 // 부분 집합
 
-public class Solution_3421_수제버거장인_이민희 {
+public class SWEA3421_수제버거장인 {
 	static int N, M;
 	static List<int[]> list;
 	static boolean[] isSelected;
