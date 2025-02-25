@@ -3,93 +3,84 @@ package algorithm;
 import java.io.*;
 import java.util.*;
 
-/*
- * 메모리 : 26,624kb
- * 실행시간 : 85ms
- */
- 
-// N개에서 N/2개 구하기
-// 대칭되는 시너지 합 구하기
-// 맛의 차이가 최소가 되는 경우 구하기
- 
-// nCn/2 (16C8 * 50개 테케) = 128700*50 완탐 가능!!!
-// 대칭되니까, 하나의 값 고정해두면 탐색 1/2 줄일 수 있음
-// ex) 1이 있는 경우와 없는 경우를 비교했을 때, 경우의 수는 딱 절반이다.
- 
-public class Solution_4008_숫자만들기_이민희 {
-    static int N;
-    static int[][] map;
-    static boolean[] visited;
-    static int answer;
- 
-    public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringBuilder sb = new StringBuilder();
-        int T = Integer.parseInt(br.readLine());
-        for(int t = 1; t <= T; t++) {
-            N = Integer.parseInt(br.readLine());
-            map = new int[N][N];
-            visited = new boolean[N];
-            for (int i = 0; i < N; i++) {
-                StringTokenizer st = new StringTokenizer(br.readLine());
-                for (int j = 0; j < N; j++) {
-                    map[i][j] = Integer.parseInt(st.nextToken());
-                }
-            }
- 
-            answer = Integer.MAX_VALUE;
-            visited[0] = true;
-            comb(1, 1);
-             
-            sb.append("#").append(t).append(" ").append(answer).append("\n");
-        }
-        System.out.print(sb);
-        br.close();
-    }
-     
-    private static void comb(int cnt, int start) {
-        if(cnt == N/2) {
-//          System.out.println(Arrays.toString(visited));
-            minDiff();
-            return;
-        }
-         
-        for(int i = start; i < N; i++) {
-            if(!visited[i]) {
-                visited[i] = true;
-                comb(cnt+1, i+1);
-                visited[i] = false;
-            }
-        }
-    }
- 
-    private static void minDiff() {
-        List<Integer> A = new ArrayList<Integer>();
-        List<Integer> B = new ArrayList<Integer>();
-         
-        for (int i = 0; i < N; i++) {
-            if (visited[i]) {
-                A.add(i);
-            } else {
-                B.add(i);
-            }
-        }
-         
-         
-        int sumA = 0;
-        for(int i = 0; i < A.size(); i++) {
-            for(int j = 0; j < A.size(); j++) {
-                sumA += map[A.get(i)][A.get(j)];
-            }
-        }
-        int sumB = 0;
-        for(int i = 0; i < B.size(); i++) {
-            for(int j = 0; j < B.size(); j++) {
-                sumB += map[B.get(i)][B.get(j)];
-            }
-        }
- 
-        answer = Math.min(answer, Math.abs(sumA - sumB));
-        return;
-    }
+// 완전탐색 dfs
+// 연산자 추가해가면서 재귀 호출
+// N-1개 추가 후 값 계산
+// 최대 최소 차이 출력
+
+// n-1Pn-1 = (n-1)!
+// 11! = 4천만 * 50개 테케 = 20억 20초..? 불가능??
+// 4^11 = 4백만 완탐 가능!!!
+
+public class Solution_4008_숫자만들기_이민희.java {
+	static int N;
+	static int[] oper;
+	static int[] num;
+	static int max;
+	static int min;
+
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringBuilder sb = new StringBuilder();
+		int T = Integer.parseInt(br.readLine());
+		for(int t = 1; t <= T; t++) {
+			N = Integer.parseInt(br.readLine());
+			oper = new int[4];
+			num = new int[N];
+			StringTokenizer st = new StringTokenizer(br.readLine());
+			for(int i = 0; i < 4; i++) { 
+				oper[i] = Integer.parseInt(st.nextToken());
+			}
+			st = new StringTokenizer(br.readLine());
+			for(int i = 0; i < N; i++) {
+				num[i] = Integer.parseInt(st.nextToken());
+			}
+			
+			max = Integer.MIN_VALUE;
+			min = Integer.MAX_VALUE;
+			
+			dfs(num[0], 1);
+			
+			sb.append("#").append(t).append(" ").append(max-min).append("\n");
+		}
+		System.out.print(sb);
+		br.close();
+	}
+	
+	
+	private static void dfs(int sum, int cnt) {
+		if (cnt == N) {
+			max = Math.max(max, sum);
+			min = Math.min(min, sum);
+//			System.out.println(max + " " + min);
+			return;
+		}
+		
+		for(int i = 0; i < 4; i++) {
+			if(oper[i] > 0) {
+				oper[i]--;
+				int nextSum = calc(sum, num[cnt], i);
+				dfs(nextSum, cnt+1);
+				oper[i]++;
+			}
+		}
+		
+	}
+	
+	private static int calc(int a, int b, int op) {
+		switch(op) {
+		case 0:
+			return a+b;
+		case 1:
+			return a-b;
+		case 2:
+			return a*b;
+		case 3:
+			return a/b;
+		default: 
+			return 0;
+		}
+	}
+	
+
 }
