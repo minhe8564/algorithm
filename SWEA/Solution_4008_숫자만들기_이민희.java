@@ -3,6 +3,11 @@ package algorithm;
 import java.io.*;
 import java.util.*;
 
+/*
+* 메모리 : 26,624kb
+* 실행 시간 : 85ms
+*/
+
 // 완전탐색 dfs
 // 연산자 추가해가면서 재귀 호출
 // N-1개 추가 후 값 계산
