@@ -45,10 +45,11 @@ public class BOJ2630_색종이만들기 {
 			return;
 		}
 		
-		mapCheck(x, y, N/2); // 왼쪽 위
-		mapCheck(x, y+N/2, N/2); // 오른쪽 위
-		mapCheck(x+N/2, y, N/2); // 왼쪽 아래
-		mapCheck(x+N/2, y+N/2, N/2); // 오른쪽 아래
+		// N=8
+		mapCheck(x, y, N/2); // 왼쪽 위 (0,0,4)
+		mapCheck(x, y+N/2, N/2); // 오른쪽 위 (0,4,4)
+		mapCheck(x+N/2, y, N/2); // 왼쪽 아래 (4,0,4)
+		mapCheck(x+N/2, y+N/2, N/2); // 오른쪽 아래 (4,4,4)
 		
 	}
 
