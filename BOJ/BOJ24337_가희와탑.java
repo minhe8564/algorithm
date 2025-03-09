@@ -6,7 +6,7 @@
 import java.io.*;
 import java.util.*;
 
-public class Main_24337_가희와탑_이민희 {
+public class BOJ24337_가희와탑 {
 	static int N, A, B;
 	static List<Integer> list;
 
