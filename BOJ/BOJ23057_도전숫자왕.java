@@ -37,7 +37,6 @@ public class BOJ23057_도전숫자왕 {
 	private static void subset(int cnt) {
 		if(cnt==N) {
 			set.add(sum());
-			cnt++;
 			return;
 		}
 		
