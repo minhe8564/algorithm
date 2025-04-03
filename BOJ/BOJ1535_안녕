@@ -1,3 +1,9 @@
+/*
+ * BOJ 1535번 : 안녕
+ * 메모리 : 11,612kb
+ * 시간 : 72ms
+ */
+
 import java.io.*;
 import java.util.*;
 
