@@ -14,7 +14,7 @@ public class BOJ9084_동전 {
 	static int N;
 	static int[] coin;
 	static int M;
-	static int[] dp; // 만들 수 있는 경우의 수
+	static int[] dp; // 만들 수 있는 경우의 수 저장
 	static int answer;
 
 	public static void main(String[] args) throws IOException {
