@@ -27,7 +27,7 @@ public class BOJ14728_벼락치기 {
 			S[n] = Integer.parseInt(st.nextToken());
 		}
 		
-		dp = new int[N+1][T+1];
+		dp = new int[N+1][T+1]; // n번째 과목까지 고려했을때, t번째 시간에 얻을 수 있는 최대 점수
 		for(int n = 1; n <= N; n++) {
 			for(int t = 1; t <= T; t++) {
 				if(t < K[n]) {
