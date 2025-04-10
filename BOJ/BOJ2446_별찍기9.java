@@ -1,6 +1,6 @@
 package algorithm;
 
-import java.io.*;
+import java.io.*; 
 
 public class BOJ2446_별찍기9 {
 
