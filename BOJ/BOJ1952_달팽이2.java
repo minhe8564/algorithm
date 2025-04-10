@@ -3,7 +3,7 @@ package algorithm;
 import java.io.*;
 import java.util.*;
 
-public class BOJ1952 {
+public class BOJ1952_달팽이2 {
 	static int[] dx = { 0, 1, 0, -1 }; // 우, 하, 좌, 상
 	static int[] dy = { 1, 0, -1, 0 };
 	
