@@ -1,3 +1,9 @@
+/*
+ * BOJ 13549번 : 숨바꼭질2
+ * 메모리 : 50,552kb
+ * 시간 : 148ms
+ */
+
 package algorithm;
 
 import java.io.*;
