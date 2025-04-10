@@ -1,9 +1,15 @@
+/*
+ * BOJ 7569번 : 토마토
+ * 메모리 : 100,188kb 
+ * 시간 : 576ms
+ */
+
 package algorithm;
 
 import java.io.*;
 import java.util.*;
 
-public class BOJ7569_토마토2 {
+public class BOJ7569_토마토_3차원배열 {
     static int N, M, H;
     static int[][][] box;
     static boolean[][][] visited;
