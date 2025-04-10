@@ -1,9 +1,15 @@
+/*
+ * BOJ 3190번 : 뱀
+ * 메모리 : 14,504kb 
+ * 시간 : 116ms
+ */
+
 package algorithm;
 
 import java.io.*;
 import java.util.*;
 
-public class BOJ3190 {
+public class BOJ3190_뱀 {
     static int N, K, L;
     static int[][] grid;
     static int[] dx = { 0, 1, 0, -1 }; // 우, 하, 좌, 상
