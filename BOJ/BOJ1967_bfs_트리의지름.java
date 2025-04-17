@@ -3,13 +3,11 @@
  * 메모리 : 20,312kb
  * 시간 : 188ms
  * 
- * 
  * 1. 가장 거리가 먼 두 노드 사이가 지름이 된다.
- * 2. 1번째 dfs : 루트에서 가장 거리가 먼 노드 찾기
- * 3. 2번째 dfs : 1번째 dfs로 찾은 노드에서 거리가 먼 노드 찾기
+ * 2. 1번째 bfs : 루트에서 가장 거리가 먼 노드 maxNode 찾기 
+ * 3. 2번째 bfs : 1번째 bfs로 찾은 노드에서 거리가 먼 노드 찾기
+ * 4. 2번째 bfs에서 가장 멀리 떨어진 거리 maxDis가 트리의 지름이 된다.
  */
-
-package algorithm;
 
 import java.io.*;
 import java.util.*;
@@ -43,13 +41,13 @@ public class BOJ1967_bfs_트리의지름 {
         	int a = Integer.parseInt(st.nextToken());
         	int b = Integer.parseInt(st.nextToken());
         	int weight = Integer.parseInt(st.nextToken());
-        	tree[a].add(new Node( b, weight ));
+        	tree[a].add(new Node( b, weight )); // 양방향 연결
         	tree[b].add(new Node( a, weight ));
         }
         
-        bfs(1);
+        bfs(1); // 1. 루트 노드에서 bfs
 
-        bfs(maxNode);
+        bfs(maxNode); // 2. maxNode에서 bfs
         
         sb.append(maxDis);
         System.out.println(sb);
