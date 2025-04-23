@@ -23,9 +23,9 @@ public class BOJ19539_사과나무 {
 			two += num/2;
 		}
 		
-		if(sum%3 > 0 || one > two) {
+		if(sum%3 > 0 || one > two) { // 3으로 나누어 떨어져야 함, 1은 2보다 크면 안됨
 			sb.append("NO");
-		} else {
+		} else { // 1==2인 경우, 2가 1보다 큰 경우 만들 수 있음
 			sb.append("YES");
 		}
 		
