@@ -30,9 +30,9 @@ public class BOJ5052_전화번호목록 {
 			
 			Arrays.sort(num);
 			
-			boolean isConsist = true;
+			boolean isConsist = true; // 일관성 체크 
 			for(String n : num) {
-				if(!insert(n)) {
+				if(!insert(n)) { // 접두사 관계 확인 
 					isConsist = false;
 					break;
 				}
@@ -49,14 +49,16 @@ public class BOJ5052_전화번호목록 {
 	}
 	
 	private static boolean insert(String num) {
-		int node = 0;
+		int node = 0; // 현재 보고 있는 트라이 노드의 인덱스
+		
 		for(int i = 0; i < num.length(); i++) {
 			int digit = num.charAt(i)-'0';
 			
+			// 현재노드에서 digit로 가는 자식노드가 없다면, 새 노드를 만들어서 연결 
 			if(trie[node][digit] == 0) {
-				trie[node][digit] = nodeCount++;
+				trie[node][digit] = nodeCount++; // 새로운 노드 번호 부여 
 			}
-			node = trie[node][digit];
+			node = trie[node][digit]; // 다음 노드로 이동 
 			
 			// 현재 지나온 경로 중 누군가가 끝나는 단어라면 -> 이 번호는 누군가의 접두사 
 			if(isEnd[node]) {
