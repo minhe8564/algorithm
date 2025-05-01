@@ -1,7 +1,7 @@
 /*
  * BOJ 2179번 : 비슷한 단어
- * 메모리 : 15,980kb
- * 시간 : 1,268ms 
+ * 메모리 : 15,988kb
+ * 시간 : 1,204ms 
  */
 
 import java.io.*;
@@ -24,7 +24,7 @@ public class BOJ2179_비슷한단어 {
 		int word2Idx = 0;
 		int max = Integer.MIN_VALUE;
 		
-		for(int i = 0; i < N-1; i++) {
+		for(int i = 0; i < N; i++) {
 			for(int j = i+1; j < N; j++) {
 				int cnt = prefix(list[i], list[j]);
 				
