@@ -1,0 +1,59 @@
+/*
+ * BOJ 2179번 : 비슷한 단어
+ * 메모리 : 15,980kb
+ * 시간 : 1,268ms 
+ */
+
+import java.io.*;
+import java.util.*;
+
+public class BOJ2179_비슷한단어 {
+	static int N;
+	static String[] list;
+
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringBuilder sb = new StringBuilder();
+		N = Integer.parseInt(br.readLine());
+		list = new String[N];
+		for(int n = 0; n < N; n++) {
+			list[n] = br.readLine();
+		}
+		
+		int word1Idx = 0;
+		int word2Idx = 0;
+		int max = Integer.MIN_VALUE;
+		
+		for(int i = 0; i < N-1; i++) {
+			for(int j = i+1; j < N; j++) {
+				int cnt = prefix(list[i], list[j]);
+				
+				if(cnt > max) {
+					word1Idx = i;
+					word2Idx = j;
+					max = cnt;
+				}
+			}
+		}
+		
+		sb.append(list[word1Idx]).append("\n");
+		sb.append(list[word2Idx]).append("\n");
+		System.out.print(sb);
+		br.close();
+	}
+	
+	private static int prefix(String word1, String word2) {
+		int cnt = 0;
+		int length = Math.min(word1.length(), word2.length());
+		
+		for(int k = 0; k < length; k++) {
+			if(word1.charAt(k) == word2.charAt(k)) {
+				cnt++;
+			} else {
+				break;
+			}
+		}
+
+		return cnt;
+	}
+}
