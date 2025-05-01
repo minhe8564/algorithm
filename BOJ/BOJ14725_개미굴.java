@@ -1,4 +1,8 @@
-package algorithm;
+/*
+ * BOJ 14725번 : 개미굴 
+ * 메모리 : 14,136kb
+ * 시간 : 120ms 
+ */
 
 import java.io.*;
 import java.util.*;
