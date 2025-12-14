@@ -26,8 +26,8 @@ class Solution_충돌위험찾기 {
         for(int i = 0; i < routes.length; i++){
             List<Pos> path = new ArrayList<>();
             int[] route = routes[i];
-            int currR = points[route[0] - 1][0]; // 시작 R
-            int currC = points[route[0] - 1][1]; // 시작 C
+            int currR = points[route[0]-1][0]; // 시작 R
+            int currC = points[route[0]-1][1]; // 시작 C
             path.add(new Pos(currR, currC));
             
             for(int j = 1; j < route.length; j++) {
