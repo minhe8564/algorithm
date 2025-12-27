@@ -1,8 +1,8 @@
 import java.util.*;
 
 class Solution_석유시추 {
-    static int[] dx = { 1, -1, 0, 0 };
-    static int[] dy = { 0, 0, 1, -1 };
+    static int[] dx = { -1, 1, 0, 0 };
+    static int[] dy = { 0, 0, -1, 1 };
     static boolean[][] visited;
     static int N, M;
     static int[] col;
@@ -25,7 +25,6 @@ class Solution_석유시추 {
         
         int answer = 0;
         for(int i = 0; i < col.length; i++) {
-            // System.out.println(col[i]);
             answer = Math.max(answer, col[i]);
         }
         
@@ -39,8 +38,6 @@ class Solution_석유시추 {
         visited[n][m] = true;
         
         int size = 0;
-        int minCol = m;
-        int maxCol = m;
         boolean[] sameCol = new boolean[M];
         
         while(!q.isEmpty()) {
@@ -65,7 +62,6 @@ class Solution_석유시추 {
         
         for(int i = 0; i < M; i++) {
             if(sameCol[i]) col[i] += size;
-            // System.out.println(i+" "+col[i] + " " + size);
         }
     }
 }
