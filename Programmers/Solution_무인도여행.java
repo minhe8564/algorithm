@@ -31,9 +31,9 @@ class Solution_무인도여행 {
             }
         }
         
-        if(answerList.isEmpty()) return new int[]{ -1 };
+        if(answerList.isEmpty()) return new int[]{ -1 }; // -1 배열 담아 리턴
         
-        Collections.sort(answerList);
+        Collections.sort(answerList); // 오름차순 정렬
         int answerSize = answerList.size();
         int[] answer = new int[answerSize];
         for(int i = 0; i < answerSize; i++){
@@ -55,7 +55,7 @@ class Solution_무인도여행 {
             int cx = curr[0];
             int cy = curr[1];
             
-            days += map[cx][cy] - '0';
+            days += map[cx][cy] - '0'; // char to int
             
             for(int d = 0; d < 4; d++) {
                 int nx = cx + dx[d];
